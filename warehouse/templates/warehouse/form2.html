@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+
+    <form name="form" action="" method="POST">{% csrf_token %}
+
+        <h4>Enter the month:</h4>
+        <select name="month">
+            <option value="1">jan</option>
+            <option value="2">feb</option>
+            <option value="3">mar</option>
+            <option value="4">april</option>
+            <option value="5">may</option>
+            <option value="6">june</option>
+            <option value="7">july</option>
+            <option value="8">aug</option>
+            <option value="9">sep</option>
+            <option value="10">oct</option>
+            <option value="11">nov</option>
+            <option value="12">dec</option>
+        </select>
+
+        <p></p>
+
+        <h4>Plant:-</h4>
+        <select name="Plant">
+            {% for plant in all_plants %}
+            <option value="{{ plant }}">{{ plant }}</option>
+            {% endfor %}
+        </select>
+
+        <h4>Operations:-</h4>
+        <select name="Operation">
+            {% for operation in all_operations %}
+            <option value="{{ operation }}">{{ operation }}</option>
+            {% endfor %}
+        </select>
+
+        <h4>Budget Value:-</h4>
+        <input type="number" placeholder="Enter the Value" name="value" /><br>
+
+        <button type = "submit" value = "submit" >
+           <strong>Submit</strong>
+        </button>
+
+    </form>
+
+    <p></p>
+
+</body>
+
+</html>

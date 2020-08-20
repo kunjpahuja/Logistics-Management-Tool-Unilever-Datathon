@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Upload</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="/Users/apple/Desktop/Uniliver/FrontEnd1/dashboard/css/style.css"> -->
+  <!-- <link rel="stylesheet" href="/Users/apple/Desktop/Uniliver/FrontEnd1/upload/upload.css"> -->
+  <link rel="stylesheet" href="{% static 'warehouse/upload.css' %}">
+  <link rel="stylesheet" href="{% static 'warehouse/style.css' %}">
+
+</head>
+
+<body style="background : url({% static 'warehouse/uu.jpg' %});">
+  <nav class="navigation-menu js-nav-menu">
+  <div class="navigation-menu__toggle js-nav-menu-toggle">
+    <span class="navigation-menu__bars"></span>
+  </div>
+  <ul class="menu-list" style="list-style-type: none;">
+
+      <li class="menu-list__item"><a href="http://127.0.0.1:8000" style="color : white; text-decoration: none; font-size: 12px;">Log Out</a></li>
+      <li class="menu-list__item"><a href="/warehouse/upload" style="color : white; text-decoration: none;">Actuals upload</a></li>
+      <!-- <li class="menu-list__item">Update Budget</li> -->
+      <div class="dropdown">
+      <li class="menu-list__item">Analytics</li>
+      <ul class="dropdown-content">
+        <li class="menu-list__item"><a href="/warehouse/operations" style="color : white; text-decoration: none;">All</a></li>
+        <li class="menu-list__item"><a href="/warehouse/operations/ru" style="color : white; text-decoration: none;">Russia</a></li>
+        <li class="menu-list__item"><a href="/warehouse/operations/ua" style="color : white; text-decoration: none;">Ukraine</a></li>
+        <!-- <li class="menu-list__item">Cost Type</li>
+        <li class="menu-list__item">Operations</li>
+        <li class="menu-list__item">Location</li> -->
+      </ul>
+    </div>
+
+  </ul>
+</nav>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="{% static 'warehouse/index.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'warehouse/layout.js' %}"></script>
+    <script type="text/javascript" src="button.js"></script>
+    <link rel="stylesheet" href="form.js">
+    <div class="uploadSection">
+
+      <form action="#" method="POST" class="uploadForm" name="uploadform">
+        <h2>Upload the SAP file</h2>
+
+        <div class="input_file">
+            <label for="file" class="file_label">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                select
+            </label>
+            <input id="file" type="file" name="file" multiple />
+        </div>
+
+        <ul class="noBullet">
+
+          <li id="center-btn">
+            <input type="submit" id="join-btn" name="join" alt="Join" value="Submit">
+          </li>
+        </ul>
+      </form>
+    </div>
+
+</body>
+</html>

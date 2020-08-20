@@ -1,0 +1,201 @@
+{% load staticfiles %}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  /* background: url(/Users/apple/Desktop/Uniliver/FrontEnd1/uu.jpg) center center no-repeat; */
+  background : url({% static 'warehouse/uu.jpg' %});
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-size: 2.4rem;
+  height: 100vh;
+}
+
+.navigation-menu__bars, .navigation-menu__bars::before, .navigation-menu__bars::after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 2px;
+  width: 25px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: block;
+  transition: all .3s;
+}
+
+.navigation-menu {
+  background-color: transparent;
+  height: 100%;
+  position: fixed;
+  width: 600px;
+  transform: translateX(-100%);
+  transition: transform .3s .3s;
+}
+.navigation-menu::before {
+  background: #4E567E;
+  content: '';
+  height: 400%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%) rotate(40deg);
+  width: 100%;
+  z-index: 0;
+}
+.navigation-menu--open {
+  transform: translateX(0);
+}
+.navigation-menu--open .navigation-menu__bars {
+  background-color: transparent;
+}
+.navigation-menu--open .navigation-menu__bars::before, .navigation-menu--open .navigation-menu__bars::after {
+  top: 0;
+}
+.navigation-menu--open .navigation-menu__bars::before {
+  transform: rotate(45deg);
+}
+.navigation-menu--open .navigation-menu__bars::after {
+  transform: rotate(-45deg);
+}
+.navigation-menu--open .menu-list__item {
+  opacity: 1;
+}
+.navigation-menu--open .menu-list__item:nth-child(1) {
+  transition-delay: .35s;
+}
+.navigation-menu--open .menu-list__item:nth-child(2) {
+  transition-delay: .35s;
+}
+.navigation-menu--open .menu-list__item:nth-child(3) {
+  transition-delay: .35s;
+}
+.navigation-menu--open .menu-list__item:nth-child(4) {
+  transition-delay: .50s;
+}
+.navigation-menu--open .menu-list__item:nth-child(5) {
+  transition-delay: .50s;
+}
+.navigation-menu--open .menu-list__item:nth-child(6) {
+  transition-delay: .50s;
+}
+.navigation-menu--open .menu-list__item:nth-child(7) {
+  transition-delay: .65s;
+}
+.navigation-menu--open .menu-list__item:nth-child(8) {
+  transition-delay: .65s;
+}
+.navigation-menu--open .menu-list__item:nth-child(9) {
+  transition-delay: .65s;
+}
+.navigation-menu--open .menu-list__item:nth-child(10) {
+  transition-delay: .80s;
+}
+.navigation-menu--open .menu-list__item:nth-child(11) {
+  transition-delay: .80s;
+}
+.navigation-menu--open .menu-list__item:nth-child(12) {
+  transition-delay: .80s;
+}
+.navigation-menu__toggle {
+  cursor: pointer;
+  height: 30px;
+  position: absolute;
+  right: -40px;
+  top: 5px;
+  width: 30px;
+}
+.navigation-menu__bars::before, .navigation-menu__bars::after {
+  content: '';
+}
+.navigation-menu__bars::before {
+  left: 0;
+  top: -8px;
+}
+.navigation-menu__bars::after {
+  left: 0;
+  top: 8px;
+}
+
+.menu-list {
+  padding: 60px 20px;
+  position: relative;
+  z-index: 10;
+}
+.menu-list__item {
+  padding: 12px 16px;
+  opacity: 0;
+  transition: opacity .5s .5s;
+}
+
+@media only screen and (max-width: 700px) {
+  .navigation-menu {
+    min-width: 240px;
+    width: 80%;
+  }
+  .navigation-menu::before {
+    width: 110%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .navigation-menu {
+    background-color: #4E567E;
+    min-width: 240px;
+    width: 80%;
+  }
+  .navigation-menu::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: none;
+  min-width: 160px;
+  transform: translateY(0em);
+  z-index: 1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.dropdown-content li {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content li:hover {background-color: rgba(25, 157, 230, .8);}
+
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+.dropdown:hover .dropbtn {background-color: rgba(25, 157, 230, .59) ;}

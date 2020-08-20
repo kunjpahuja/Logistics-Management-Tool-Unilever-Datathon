@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Operations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'warehouse/style.css' %}">
+  <link rel="stylesheet" href="{% static 'warehouse/operations.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'warehouse/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'warehouse/main.css' %}">
+</head>
+
+<body>
+  <nav class="navigation-menu js-nav-menu">
+  <div class="navigation-menu__toggle js-nav-menu-toggle">
+    <span class="navigation-menu__bars"></span>
+  </div>
+  <ul class="menu-list" style="list-style-type: none;">
+
+      <li class="menu-list__item"><a href="http://127.0.0.1:8000" style="color : white; text-decoration: none; font-size: 12px;">Log Out</a></li>
+      <li class="menu-list__item"><a href="/warehouse/upload" style="color : white; text-decoration: none;">Actuals upload</a></li>
+      <!-- <li class="menu-list__item">Update Budget</li> -->
+      <div class="dropdown">
+      <li class="menu-list__item">Analytics</li>
+      <ul class="dropdown-content">
+        <li class="menu-list__item"><a href="/warehouse/operations" style="color : white; text-decoration: none;">All</a></li>
+        <li class="menu-list__item"><a href="/warehouse/operations/ru" style="color : white; text-decoration: none;">Russia</a></li>
+        <li class="menu-list__item"><a href="/warehouse/operations/ua" style="color : white; text-decoration: none;">Ukraine</a></li>
+        <!-- <li class="menu-list__item">Cost Type</li>
+        <li class="menu-list__item">Operations</li>
+        <li class="menu-list__item">Location</li> -->
+      </ul>
+</nav>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="{% static 'warehouse/index.js' %}"></script>
+
+
+    <!--
+      <div class="displaySection"> -->
+
+        <div class="limiter">
+          <div class="container-table100">
+            <div class="wrap-table100">
+
+            <div class="table100 ver6 m-b-110">
+                <table data-vertable="ver6">
+                  <thead>
+                    <tr class="row100 head">
+                      <!-- <th class="column100 column1" data-column="column1"></th> -->
+                      <!-- <th class="column100 column2" data-column="column2">Location</th> -->
+                      <th class="column100 column3" data-column="column1">Country</th>
+                      <th class="column100 column3" data-column="column2">Plant</th>
+                      <th class="column100 column4" data-column="column3">Cost Element</th>
+                      <th class="column100 column4" data-column="column2">Cost</th>
+                      <th class="column100 column4" data-column="column2">Cost Centre</th>
+                      <th class="column100 column4" data-column="column2">Operation</th>
+                      <th class="column100 column4" data-column="column2">Category</th>
+                      <th class="column100 column5" data-column="column4">Period</th>
+                      <th class="column100 column6" data-column="column5">Total (Converted)</th>
+                      <th class="column100 column7" data-column="column6">Actual/Forecast</th>
+                      <!-- <th class="column100 column8" data-column="column8">Variance</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    {% for cd in all_cd %}
+                    <tr class="row100">
+                      <td class="column100 column1" data-column="column1">{{ cd.plant.coutryCode }}</td>
+                      <td class="column100 column1" data-column="column2">{{ cd.plant.plantCode }}</td>
+                      <td class="column100 column2" data-column="column3">{{ cd.cost_Type.cost_element }}</td>
+                      <td class="column100 column2" data-column="column2">{{ cd.cost_Type.name }}</td>
+                      <td class="column100 column3" data-column="column3">{{ cd.operation_Type.cost_center }}</td>
+                      <td class="column100 column3" data-column="column3">{{ cd.operation_Type.operation_type }}</td>
+                      <td class="column100 column3" data-column="column3">{{ cd.operation_Type.category }}</td>
+                      <td class="column100 column4" data-column="column4">{{ cd.period }}</td>
+                      <td class="column100 column5" data-column="column5">{{ cd.value }}</td>
+
+                      {% if cd.actual is False %}
+                        <td class="column100 column5" data-column="column5">Forecast</td>
+
+                      {% else %}
+                        <td class="column100 column5" data-column="column5">Actual</td>
+                      {% endif %}
+
+                    </tr>
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+h1 {
+   margin-top: 150px;
+    font-family: "Courier New";
+    color: white;
+    text-align: center;
+    font-size: 50px
+}
+body
+{
+  background: url(/Users/apple/Desktop/Uniliver/FrontEnd1/uu.jpg);
+  background-size: cover;
+}
+
+.uploadSection {
+
+  background-repeat: no-repeat;
+  background: rgba(20, 40, 40, .8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 20, .5);
+}
+
+#file {  display: none}
+
+.file_label {
+    display: block;
+    margin: 50px auto;
+    font-size: 18px;
+    font-family: Arial;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgba(255,255,255,0.5);
+    color: black;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out
+}
+
+.file_label:hover {
+    background-color: #f39c12;
+    color: #ffffff;
+}
+.fa {
+    margin-right: 5px
+}
